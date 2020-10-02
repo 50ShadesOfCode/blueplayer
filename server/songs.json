@@ -1,0 +1,13 @@
+[
+    {   "id" :1,
+        "name": "test",
+        "author": "test",
+        "path": "./songs/test.mp3"
+    },
+    {
+        "id": 2,
+        "name": "test2s",
+        "author": "test2",
+        "path": "./songs/test2.mp3"
+    }
+]
