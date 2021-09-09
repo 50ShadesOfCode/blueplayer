@@ -1,6 +1,6 @@
 # blue_player
 
-A new Flutter application.
+Simple music player app written with Go and Flutter.
 
 ## Getting Started
 
