@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return PersistentTabView(
+      context,
       controller: _controller,
       screens: _buildScreens(),
       items: _navBarItems(),
@@ -45,19 +46,19 @@ List<PersistentBottomNavBarItem> _navBarItems() {
     PersistentBottomNavBarItem(
       icon: Icon(CupertinoIcons.play_arrow),
       title: ("Player"),
-      activeColor: Colors.red,
-      inactiveColor: CupertinoColors.systemGrey,
+      activeColorPrimary: Colors.red,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
       icon: Icon(CupertinoIcons.bluetooth),
       title: ("Media Control"),
-      activeColor: CupertinoColors.activeBlue,
-      inactiveColor: CupertinoColors.systemGrey,
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
         icon: Icon(CupertinoIcons.cloud_upload),
         title: ("Upload"),
-        activeColor: CupertinoColors.activeGreen,
-        inactiveColor: CupertinoColors.systemGrey)
+        activeColorPrimary: CupertinoColors.activeGreen,
+        inactiveColorPrimary: CupertinoColors.systemGrey)
   ];
 }

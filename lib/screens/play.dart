@@ -37,9 +37,9 @@ class _AudioScreenState extends State<AudioScreen> {
 
   _init() async {
     final session = await AudioSession.instance;
-    await session.configure(AudioSessionConfiguration.speech());
+    await session.configure(AudioSessionConfiguration.music());
     try {
-      await _player.load(_playlist);
+      await _player.setAudioSource(_playlist);
     } catch (e) {
       print("An error occured $e");
     }
