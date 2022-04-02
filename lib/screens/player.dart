@@ -10,10 +10,10 @@ class Player extends StatelessWidget {
           children: [
             Text("Player"),
             Padding(padding: EdgeInsets.all(50)),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {},
               child: Icon(Icons.play_arrow),
-            ),
+            )
           ],
         ),
       ),

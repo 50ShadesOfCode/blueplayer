@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blue_player/screens/home_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,7 +14,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        appBarTheme: AppBarTheme(brightness: Brightness.light),
+        appBarTheme:
+            AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.light),
       ),
       home: HomePage(),
     );

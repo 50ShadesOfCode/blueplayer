@@ -13,19 +13,19 @@ class _BluetoothAppState extends State<BluetoothApp> {
   BluetoothConnection connection;
   bool get isConnected => connection != null && connection.isConnected;
   BluetoothDevice _device;
-  int _deviceState;
   bool isDisconnecting = false,
       _connected = false,
       _isButtonUnavailable = false;
   List<BluetoothDevice> _devicesList = [];
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  ScaffoldMessenger messenger;
 
   Future show(
     String message, {
     Duration duration: const Duration(seconds: 3),
   }) async {
     await new Future.delayed(new Duration(milliseconds: 100));
-    _scaffoldKey.currentState.showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       new SnackBar(
         content: new Text(
           message,
@@ -139,8 +139,6 @@ class _BluetoothAppState extends State<BluetoothApp> {
       });
     });
 
-    _deviceState = 0;
-
     enableBluetooth();
 
     FlutterBluetoothSerial.instance
@@ -157,6 +155,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
         child: Column(
           children: [
@@ -195,7 +194,7 @@ class _BluetoothAppState extends State<BluetoothApp> {
                   onChanged: (value) => setState(() => _device = value),
                   value: _devicesList.isNotEmpty ? _device : null,
                 ),
-                RaisedButton(
+                ElevatedButton(
                   onPressed: _isButtonUnavailable
                       ? null
                       : _connected
